@@ -34,6 +34,9 @@ async def scrape(url):
             actividad = actividad.strip()
             prestatario = prestatario.strip()
 
+            actividad = actividad.split(":", 1)[1].strip()
+            prestatario = prestatario.split(":", 1)[1].strip()
+
             activity_info["actividad"] = actividad
             activity_info["prestatario"] = prestatario
 
