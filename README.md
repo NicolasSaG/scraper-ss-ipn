@@ -29,3 +29,8 @@ Salida: urls.csv
 python get_data.py 
 ```
 Salida: servicio_social.csv
+![alt tabla con datos de prestatarios](https://github.com/NicolasSaG/scraper-ss-ipn/blob/main/images/datos.PNG)
+
+
+## 5 Revisión de actividades de servicio social para el inicio del segundo semestre 2022
+![alt analisis tableau](https://github.com/NicolasSaG/scraper-ss-ipn/blob/main/images/sevicio_social_2do_semestre_2022.png)
