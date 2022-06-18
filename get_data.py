@@ -7,7 +7,7 @@ import re
 from bs4 import BeautifulSoup
 
 field_names = ["actividad", "prestatario", "vacantes", "nombre_largo", "nombre_del_programa", "fecha_inicio",
-               "fecha_termino", "objetivo", "justificación", "domicilio", "representante", "email", "telefono", "fax", "apoyos"]
+               "fecha_termino", "objetivo", "justificación", "domicilio", "representante", "medios_de_contacto_con_el_representante", "apoyos"]
 
 
 async def save_activity(data):
@@ -56,14 +56,14 @@ async def scrape(url):
                         except:
                             pass
 
-                    elif key.split(":", 1)[0] == "Medios de Contacto con el Representante":
-                        try:
-                            contactos = re.match(
-                                ".+: (?P<email>([a-z]+@[a-z.]+)).+: (?P<telefono>([0-9-]+)).+: (?P<fax>([0-9-]+))", key)
-                            for key, value in contactos.groupdict().items():
-                                activity_info[key] = value
-                        except:
-                            pass
+                    # elif key.split(":", 1)[0] == "Medios de Contacto con el Representante":
+                    #     try:
+                    #         contactos = re.match(
+                    #             ".+: (?P<email>([a-z]+@[a-z.]+)).+: (?P<telefono>([0-9-]+)).+: (?P<fax>([0-9-]+))", key)
+                    #         for key, value in contactos.groupdict().items():
+                    #             activity_info[key] = value
+                    #     except:
+                    #         pass
                     else:
                         value = key.split(":", 1)[1].strip()
                         key = key.split(":", 1)[0].lower().replace(" ", "_")
