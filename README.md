@@ -1,5 +1,5 @@
 # scraper-ss-ipn
-Scraper para extraer datos de todos las actividades de prestatarios disponibles en https://serviciosocial.ipn.mx
+Scraper para extraer datos de todas las actividades de prestatarios disponibles en https://serviciosocial.ipn.mx
 
 ## Requisitos
 Tener instalado la última versión del navegador Google Chrome
