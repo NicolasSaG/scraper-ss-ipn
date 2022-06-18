@@ -60,6 +60,21 @@ class Scraper:
             print(f"Error al ver prestatarios: {e}")
         return 0
 
+    def obtener_urls_prestatarios(self):
+        urls = []
+        try:
+            response = BeautifulSoup(self.driver.page_source, 'html.parser')
+            prestatarios = response.find_all('a')
+            for index, prestatario in enumerate(prestatarios):
+                if prestatario.get_text() == "Ver":
+                    urls.append(
+                        f"https://serviciosocial.ipn.mx{prestatario.get('href')}")
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print("datos: ", exc_type, exc_tb.tb_lineno)
+            print(f"Error al obtener url de prestatarios: {e}")
+        return urls
+
     def obtener_prestatarios(self):
         prestatarios_data = []
         try:
