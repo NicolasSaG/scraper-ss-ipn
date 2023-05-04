@@ -84,8 +84,7 @@ class Scraper:
             for index, prestatario in enumerate(prestatarios):
                 if prestatario.get_text() == "Ver":
                     url_prestatario = prestatario.get("href")
-                    ver_link = self.driver.find_element_by_css_selector(
-                        f"a[href='{url_prestatario}']")
+                    ver_link = self.driver.find_element(By.CSS_SELECTOR, f"a[href='{url_prestatario}']")
                     ver_link.click()
                     elem = WebDriverWait(self.driver, 30).until(
                         expected_conditions.presence_of_element_located((By.LINK_TEXT, "Regresar")))
@@ -103,18 +102,17 @@ class Scraper:
 
     def __obtener_datos_prestatario(self):
         prestatario = {}
-        actividad = self.driver.find_element_by_class_name(
-            "subtitulo").text
+        
+        actividad = self.driver.find_element(By.CLASS_NAME, "subtitulo").text
         actividad = actividad.split(":")[1][1:]
 
-        prestatario_nombre = self.driver.find_element_by_class_name(
-            "subtitulo2").text
+        prestatario_nombre = self.driver.find_element(By.CLASS_NAME, "subtitulo2").text
         prestatario_nombre = prestatario_nombre.split(":")[1]
         prestatario_num = prestatario_nombre.rsplit(" ", 1)[1]
         prestatario_num = prestatario_num.replace(")", "").replace("(", "")
         prestatario_nombre = prestatario_nombre.rsplit(" ", 1)[0][1:]
 
-        datos = self.driver.find_elements_by_class_name("fila")
+        datos = self.driver.find_elements(By.CLASS_NAME, "fila")
         for dato in datos:
             try:
                 name = dato.text.split(":")[0].lower()
