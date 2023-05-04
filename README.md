@@ -2,8 +2,8 @@
 Scraper para extraer datos de todas las actividades de prestatarios disponibles en https://serviciosocial.ipn.mx
 
 ## Requisitos
-Tener instalado la última versión del navegador Google Chrome
-python 3.x
+1. Tener instalado la última versión del navegador Google Chrome
+2. python 3.x
 
 ## 1 Crear entorno virtual
 ```
